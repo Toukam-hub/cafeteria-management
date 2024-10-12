@@ -1,4 +1,4 @@
-package com.inn.cafe.cafe_management_system.dto;
+package com.inn.cafe.cafe_management_system.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,11 +7,14 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import java.io.Serializable;
 
+@NamedQuery(name = "User.findAllByEmailId",
+query = "select u from User u where u.email =:email" )
+
 @Data
 @DynamicUpdate
 @DynamicInsert
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User implements Serializable {
     private final Long serialVersionUID = 1L;
     @Id
