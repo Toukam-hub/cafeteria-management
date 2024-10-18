@@ -10,6 +10,10 @@ import java.io.Serializable;
 @NamedQuery(name = "User.findAllByEmailId",
 query = "select u from User u where u.email =:email" )
 
+@NamedQuery(name = "User.getAllUser",
+        query = "select new com.inn.cafe.cafe_management_system.dto.UserDto(u.id,u.name,u.contactNumber,u.email,u.status) from User u where u.role='user'" )
+
+
 @Data
 @DynamicUpdate
 @DynamicInsert
