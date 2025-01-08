@@ -1,0 +1,54 @@
+###
+POST http://localhost:8080/user/signup
+Content-Type: application/json
+
+{
+  "name": "audrey",
+  "contactNumber": "658814955",
+  "email": "audrey@exemple.com",
+  "password": "audrey"
+
+}
+###
+POST http://localhost:8080/user/forgotPassword
+Content-Type: application/json
+
+{
+  "email": "wilfridneambo63@gmail.com"
+}
+
+###
+POST http://localhost:8080/user/reset-password?token=eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiUk9MRV9VU0VSIiwic3ViIjoid2lsZnJpZG5lYW1ibzYzQGdtYWlsLmNvbSIsImlhdCI6MTczNjE2MjE3MSwiZXhwIjoxNzM2MTYzOTcxfQ.EHdsacL-e4sBiB1DF5MfWouB_ezD1GQfTBuyz8bHy2d1KbyVP-WTCUpyWflSi2xU
+Content-Type: application/json
+
+{
+  "newPassword": "NewPassword123!"
+}
+
+###
+POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+  "email": "wilfridneambo63@gmail.com",
+  "password": "neambo"
+}
+
+###
+POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+  "email": "loick@gmail.com",
+  "password": "loick"
+}
+
+
+###
+POST http://localhost:8080/user/login
+Content-Type: application/json
+
+{
+  "email": "audrey@exemple.com",
+  "password": "audrey"
+}

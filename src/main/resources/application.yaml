@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:postgresql://localhost:5440/cafetaria
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: toukamjordan58@gmail.com
+    password: oulc nzjt mens tvqj
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+jwt:
+  secret: QEs2XLtbU3KKeMgTNm4XdWupO8hPZtcEUuqU1j4NOKcR/TvJyJiv1TOD+W5HiZRT
