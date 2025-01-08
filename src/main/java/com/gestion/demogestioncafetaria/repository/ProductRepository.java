@@ -8,6 +8,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
@@ -15,5 +17,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Transactional
     @Query(value = "UPDATE Product SET status =:status WHERE id=:id")
     Integer updateProductByStatus(@Param("status") String status, @Param("id") Long id);
+
+    List<Product> findProductByCategoryId(Long id);
 
 }

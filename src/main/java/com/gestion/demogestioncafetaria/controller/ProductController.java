@@ -1,8 +1,6 @@
 package com.gestion.demogestioncafetaria.controller;
 
-import com.gestion.demogestioncafetaria.resource.product.ProductRequest;
-import com.gestion.demogestioncafetaria.resource.product.ProductResponse;
-import com.gestion.demogestioncafetaria.resource.product.UpdateStatusRequest;
+import com.gestion.demogestioncafetaria.resource.product.*;
 import com.gestion.demogestioncafetaria.service.product.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,19 +18,22 @@ public class ProductController {
     private final DeleteProduct deleteProduct;
     private final GetProductById getProductById;
     private final UpdateStatusProduct updateStatusProduct;
+    private final GetProductByCategory getProductByCategory;
 
     public ProductController(CreateProduct createProduct,
                              GetAllProduct getAllProduct,
                              UpdateProduct updateProduct,
                              DeleteProduct deleteProduct,
                              GetProductById getProductById,
-                             UpdateStatusProduct updateStatusProduct) {
+                             UpdateStatusProduct updateStatusProduct,
+                             GetProductByCategory getProductByCategory) {
         this.createProduct = createProduct;
         this.getAllProduct = getAllProduct;
         this.updateProduct = updateProduct;
         this.deleteProduct = deleteProduct;
         this.getProductById = getProductById;
         this.updateStatusProduct = updateStatusProduct;
+        this.getProductByCategory = getProductByCategory;
     }
 
     @PostMapping("/add")
@@ -59,7 +60,7 @@ public class ProductController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<ProductResponse> getProductById(@PathVariable Long id) {
+    public ResponseEntity<ProductByIdResponse> getProductById(@PathVariable Long id) {
         return ResponseEntity.ok(this.getProductById.execute(id));
     }
 
@@ -67,5 +68,10 @@ public class ProductController {
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> updetaStaus(@RequestBody UpdateStatusRequest request) {
         return ResponseEntity.ok(this.updateStatusProduct.execute(request));
+    }
+
+    @GetMapping("/get-by-category/{id}")
+    public ResponseEntity<List<ProductByCategoryResponse>> getProductByCategory(@PathVariable Long id) {
+        return ResponseEntity.ok(this.getProductByCategory.execute(id));
     }
 }

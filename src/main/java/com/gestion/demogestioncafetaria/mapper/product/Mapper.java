@@ -2,6 +2,8 @@ package com.gestion.demogestioncafetaria.mapper.product;
 
 import com.gestion.demogestioncafetaria.entity.Category;
 import com.gestion.demogestioncafetaria.entity.Product;
+import com.gestion.demogestioncafetaria.resource.product.ProductByCategoryResponse;
+import com.gestion.demogestioncafetaria.resource.product.ProductByIdResponse;
 import com.gestion.demogestioncafetaria.resource.product.ProductRequest;
 import com.gestion.demogestioncafetaria.resource.product.ProductResponse;
 
@@ -28,5 +30,13 @@ return Product.builder()
                 product.getPrice(),
                 product.getStatus()
         );
+    }
+
+    public static ProductByCategoryResponse mapResponse(Product product){
+        return new ProductByCategoryResponse(product.getId(), product.getName());
+    }
+
+    public  static ProductByIdResponse mapResponseById(Product product){
+        return  new ProductByIdResponse(product.getId(), product.getName(), product.getDescription(), product.getPrice());
     }
 }
