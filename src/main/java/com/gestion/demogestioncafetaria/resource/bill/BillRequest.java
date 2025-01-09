@@ -11,10 +11,9 @@ public record BillRequest(
         @Size(min = 3)
         String contact,
         @Size(min = 3)
-        String payementMethod,
+        String paymentMethod,
         @Size(min = 3)
         String total,
-        @Size(min = 3)
         String productDetail
 ) {
 }

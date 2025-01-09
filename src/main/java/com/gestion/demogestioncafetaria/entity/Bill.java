@@ -22,7 +22,7 @@ public class Bill {
     @Column(name = "payement_method")
     private String payementMethod;
     private String total;
-    @Column(name = "product_detail", columnDefinition = "json")
+    @Column(name = "product_detail")
     private String productDetail;
     private String createBy;
 }

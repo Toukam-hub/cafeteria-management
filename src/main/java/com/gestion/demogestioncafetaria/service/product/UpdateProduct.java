@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import static com.gestion.demogestioncafetaria.constent.CafeConstent.PRODUCT_NOT_FOUND;
+import static com.gestion.demogestioncafetaria.constent.CafeConstent.PRODUCT_SUCCESSFULLY_UPDATE;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +30,7 @@ public class UpdateProduct {
         product.setPrice(request.price());
         product.setStatus(request.status());
         this.productRepository.save(product);
-        return "Product update Successfully !";
+        return PRODUCT_SUCCESSFULLY_UPDATE;
     }
 
 

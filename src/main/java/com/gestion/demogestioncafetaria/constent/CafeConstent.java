@@ -13,5 +13,10 @@ public class CafeConstent {
     public static final String PRODUCT_SUCCESSFULLY_UPDATE = "Product Updated Successfully !";
     public static final String PRODUCT_SUCCESSFULLY_UPDATE_STATUS = "Product Status Updated Successfully !";
 
+
+    public static final String STORE_LOCATION = "C:\\Users\\Neambo\\Documents\\pdf";
+
+
+
 }
 
