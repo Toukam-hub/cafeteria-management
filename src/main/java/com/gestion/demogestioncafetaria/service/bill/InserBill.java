@@ -47,7 +47,7 @@ public class InserBill {
                 "Payment Method : " + request.paymentMethod();
 
         Document document = new Document();
-        PdfWriter.getInstance(document, new FileOutputStream(STORE_LOCATION + "\\" + fileName + ".pdf"));
+        PdfWriter.getInstance(document, new FileOutputStream(STORE_LOCATION + fileName + ".pdf"));
 
         document.open();
         setRectangleInPfd(document);
@@ -56,7 +56,7 @@ public class InserBill {
         chunk.setAlignment(Element.ALIGN_CENTER);
         document.add(chunk);
 
-        Paragraph paragraph = new Paragraph("\n \n"+data+"\n \n", getFont("Data"));
+        Paragraph paragraph = new Paragraph("\n \n" + data + "\n \n", getFont("Data"));
         document.add(paragraph);
 
         PdfPTable table = new PdfPTable(5);
@@ -70,13 +70,13 @@ public class InserBill {
         document.add(table);
 
 
-        Paragraph footer = new Paragraph("\n Total : "+request.total()+"\n"+
-                "Thank you for visiting. Please visit again !!", getFont("Data"));
+        Paragraph footer = new Paragraph("\n Total : " + request.total() + "\n" +
+                                                 "Thank you for visiting. Please visit again !!", getFont("Data"));
         document.add(footer);
 
         document.close();
 
-        return "uuid : "+fileName;
+        return "uuid : " + fileName;
     }
 
 
@@ -91,8 +91,8 @@ public class InserBill {
 
     private void addTableHeader(PdfPTable table) {
         log.info("AddTableHeader");
-        Stream.of("Name","Category","Quantity","Price", "Sub Total")
-                .forEach(columnTitle ->{
+        Stream.of("Name", "Category", "Quantity", "Price", "Sub Total")
+                .forEach(columnTitle -> {
                     PdfPCell header = new PdfPCell();
                     header.setBackgroundColor(BaseColor.LIGHT_GRAY);
                     header.setBorderWidth(2);

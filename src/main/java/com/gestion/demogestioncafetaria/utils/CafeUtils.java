@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,5 +29,10 @@ public class CafeUtils {
             return new Gson().fromJson(data, new TypeToken<Map<String, String>>() {}.getType());
         }
         return new HashMap<>();
+    }
+
+    public static boolean isFileExist(String path){
+        File file = new File(path);
+        return file.exists()? Boolean.TRUE:Boolean.FALSE;
     }
 }

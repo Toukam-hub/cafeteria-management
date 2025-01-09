@@ -1,7 +1,9 @@
 package com.gestion.demogestioncafetaria.mapper.bill;
 
 import com.gestion.demogestioncafetaria.entity.Bill;
+import com.gestion.demogestioncafetaria.resource.bill.BillPfdRequest;
 import com.gestion.demogestioncafetaria.resource.bill.BillRequest;
+import com.gestion.demogestioncafetaria.resource.bill.BillResponse;
 import com.gestion.demogestioncafetaria.utils.CafeUtils;
 
 
@@ -21,5 +23,30 @@ public class Mapper {
                 .createBy(user)
                 .build();
     }
+
+    public static BillRequest map(BillPfdRequest request){
+        return new BillRequest(
+                request.name(),
+                request.email(),
+                request.contact(),
+                request.paymentMethod(),
+                request.total(),
+                request.productDetail()
+        );
+    }
+
+    public static BillResponse map(Bill bill){
+        return new BillResponse(
+                bill.getId(),
+                bill.getName(),
+                bill.getEmail(),
+                bill.getContact(),
+                bill.getPayementMethod(),
+                bill.getTotal(),
+                bill.getProductDetail(),
+                bill.getCreateBy()
+        );
+    }
+
 
 }
